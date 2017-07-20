@@ -14,6 +14,12 @@ class App extends React.Component {
       
     });
   }
+
+  onKeyEnter (event) {
+    if (event.charCode === 13) { //enter key has a number of 13
+      this.onSearchSubmit($('.form-control').val());
+    }
+  }
   
   setSearchState (data) {
     this.setState({ //change states of App, change videoCollection and currentVideo
@@ -54,7 +60,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <window.Search cb={this.onSearchSubmit.bind(this)}/>
+            <window.Search cb={this.onSearchSubmit.bind(this)} cb2={this.onKeyEnter.bind(this)}/>
           </div>
         </nav>
         <div className="row">
