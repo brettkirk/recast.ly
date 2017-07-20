@@ -1,12 +1,23 @@
-var VideoList = (props) => (
-  <div className="video-list">
-    <div>
-      {props.videos.map(video => 
-        <VideoListEntry video={video} />
-        )}
-    </div>
-  </div>
-);
+class VideoList extends React.Component {
+  constructor(props) {
+    super(props);
+  
+    this.state = {
+    };
+  }
+
+  render() {
+    return (
+      <div className="video-list">
+        <div>
+          {this.props.videos.map(video => 
+            <VideoListEntry cb={this.props.cb} video={video} />
+            )}
+        </div>
+      </div>
+    );
+  }
+} 
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
