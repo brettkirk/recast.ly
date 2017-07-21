@@ -7,7 +7,7 @@ class App extends React.Component {
       videoCollection: window.exampleVideoData
     };
   }
-    
+
   onTitleClick (video) {
     this.setState({
       currentVideo: video
@@ -15,10 +15,10 @@ class App extends React.Component {
     });
   }
 
-  onKeyEnter (event) {
-    if (event.charCode === 13) { //enter key has a number of 13
-      this.onSearchSubmit($('.form-control').val());
-    }
+  onKey (event) {
+    //if (event.charCode === 13) { //'enter' key has a number of 13
+    setTimeout(() => this.onSearchSubmit($('.form-control').val()), 750);
+    //}
   }
   
   setSearchState (data) {
@@ -26,6 +26,10 @@ class App extends React.Component {
       videoCollection: data.items, //where array of object videos is stored after pulling from api
       currentVideo: data.items[0]
     });
+  }
+
+  componentDidMount() { //built-in React method/life-cycle hook that runs only once the view/component is done rendering
+    this.onSearchSubmit('Hack Reactor'); //will display data from Youtube Server initially once component is rendered
   }
 
   onSearchSubmit (input) {
@@ -51,7 +55,7 @@ class App extends React.Component {
       } 
     });
 
-    $('.form-control').val(''); //clears search after query
+    //$('.form-control').val(''); //clears search after query
 
   }
 
@@ -60,7 +64,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <window.Search cb={this.onSearchSubmit.bind(this)} cb2={this.onKeyEnter.bind(this)}/> {/*properties passed in here 'cb' and 'cb2' are actually properties of 'props' property of component*/}
+            <window.Search cb={this.onSearchSubmit.bind(this)} cb2={this.onKey.bind(this)}/> {/*properties passed in here 'cb' and 'cb2' are actually properties of 'props' property of component*/}
           </div>
         </nav>
         <div className="row">
