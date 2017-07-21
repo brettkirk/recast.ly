@@ -20,3 +20,4 @@ VideoPlayer.propTypes = {
 // `var` declarations will only exist globally where explicitly defined
 window.VideoPlayer = VideoPlayer;
 console.log(VideoPlayer);
+

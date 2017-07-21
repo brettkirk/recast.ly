@@ -60,7 +60,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <window.Search cb={this.onSearchSubmit.bind(this)} cb2={this.onKeyEnter.bind(this)}/>
+            <window.Search cb={this.onSearchSubmit.bind(this)} cb2={this.onKeyEnter.bind(this)}/> {/*properties passed in here 'cb' and 'cb2' are actually properties of 'props' property of component*/}
           </div>
         </nav>
         <div className="row">
